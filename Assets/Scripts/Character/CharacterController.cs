@@ -1,19 +1,24 @@
+using System;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
     public static CharacterController instance { get; private set; }
     
+    public event EventHandler OnAttack; 
+    
     private Rigidbody rb;
     private PlayerInput playerInput;
 
     private Vector3 moveDir;
-    private bool isMoving;
+    private bool isMoving = false;
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 8f;
-    
+    [Space]
+    [SerializeField] private float baseAttackCooldown = 0.2f;
+    private float baseAttackTimer;
     
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         RotateCharacter();
+
+        PerformBaseAttack();
     }
 
     private void FixedUpdate()
@@ -35,6 +42,21 @@ public class CharacterController : MonoBehaviour
         MoveCharacter();
     }
 
+    private void OnDestroy()
+    {
+        playerInput.Dispose(); // Destroy the Input when the Scene ends
+    }
+
+    private void PerformBaseAttack()
+    {
+        baseAttackTimer += Time.deltaTime; // increase the BaseAttackTimer
+        
+        if (baseAttackTimer >= baseAttackCooldown && !IsCharacterMoving()) // check for BaseAttackCooldown and Character is not moving
+        {
+            OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
+        }
+    }
+    
     private void RotateCharacter()
     {
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
@@ -59,6 +81,6 @@ public class CharacterController : MonoBehaviour
 
     public bool IsCharacterMoving()
     {
-        return isMoving;
+        return isMoving; // return is Moving bool
     }
 }
