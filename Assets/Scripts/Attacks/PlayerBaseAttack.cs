@@ -5,7 +5,8 @@ public class PlayerBaseAttack : MonoBehaviour
     private Rigidbody rb;
     
     [Header("Stats")]
-    [SerializeField] private int attackDamage = 10;
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float movSpeed = 10f;
 
 
     private void Awake()
@@ -21,14 +22,14 @@ public class PlayerBaseAttack : MonoBehaviour
     private void MoveProjectile()
     {
         Vector3 forwardMoveVector = new Vector3(0, 0, 10); // forward move Vector
-        rb.MovePosition(rb.position + (forwardMoveVector * Time.deltaTime)); // move Character
+        rb.MovePosition(rb.position + (transform.forward * Time.deltaTime * movSpeed)); // move Character
     }
 
     private void OnTriggerEnter(Collider other)
     {
         IDamageable hitObject = other.gameObject.GetComponent<IDamageable>();
 
-        if (hitObject != null)
+        if (hitObject != null || other.CompareTag("Enemy"))
         {
             hitObject.ApplyDamage(attackDamage);
         }

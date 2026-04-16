@@ -17,8 +17,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 8f;
     [Space] 
-    [SerializeField] private GameObject attackPrefab;
-    [SerializeField] private float baseAttackCooldown = 0.2f;
+    [SerializeField] private GameObject baseAttackPrefab;
+    [SerializeField] private float baseAttackCooldown = 1f;
+    [SerializeField] private GameObject attackOffset;
     private float baseAttackTimer;
     
     
@@ -30,6 +31,11 @@ public class CharacterController : MonoBehaviour
 
         playerInput = new PlayerInput(); // create and assign the player Input variable
         playerInput.Player.Enable(); // enable the specific part of the Actionmap
+    }
+
+    private void Start()
+    {
+        baseAttackTimer = 0f;
     }
 
     private void Update()
@@ -56,6 +62,10 @@ public class CharacterController : MonoBehaviour
         if (baseAttackTimer >= baseAttackCooldown && !IsCharacterMoving()) // check for BaseAttackCooldown and Character is not moving
         {
             OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
+
+            Instantiate(baseAttackPrefab, attackOffset.transform.position, transform.rotation); // Angriff spawnen
+
+            baseAttackTimer = 0f; // attack timer auf null zurücksetzen
         }
     }
     

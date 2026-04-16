@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CharacterStats : BaseStats, IDamageable
+public class CharacterStats : MonoBehaviour, IDamageable
 {
     public event EventHandler OnGetHit;
     
@@ -19,7 +19,7 @@ public class CharacterStats : BaseStats, IDamageable
         currentHealth = maxHealth;
     }
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
 

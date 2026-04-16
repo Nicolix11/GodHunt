@@ -185,4 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c92e317d7a7a34b805cc1558395545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
-  damage: 10
+  attackDamage: 20
