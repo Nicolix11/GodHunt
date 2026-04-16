@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBaseAttack : MonoBehaviour
@@ -35,6 +33,6 @@ public class PlayerBaseAttack : MonoBehaviour
             hitObject.ApplyDamage(attackDamage);
         }
         
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

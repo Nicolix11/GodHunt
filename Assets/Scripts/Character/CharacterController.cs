@@ -16,9 +16,11 @@ public class CharacterController : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 8f;
-    [Space]
+    [Space] 
+    [SerializeField] private GameObject attackPrefab;
     [SerializeField] private float baseAttackCooldown = 0.2f;
     private float baseAttackTimer;
+    
     
     private void Awake()
     {

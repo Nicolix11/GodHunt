@@ -1,21 +1,22 @@
 using System;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour, IDamageable
+public class CharacterStats : BaseStats, IDamageable
 {
+    public event EventHandler OnGetHit;
+    
     [Header("Stats")]
-    [SerializeField] private int currentHealth;
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth = 100;
 
+    private bool isAlive;
+    
 
-    private void Start()
+    private void Awake()
     {
+        isAlive = true;
+        
         currentHealth = maxHealth;
-    }
-
-    private void Update()
-    {
-        Debug.Log("Player Health:" + currentHealth);
     }
 
     public void ApplyDamage(int damage)
@@ -26,10 +27,34 @@ public class CharacterStats : MonoBehaviour, IDamageable
         {
             Die();
         }
+        
+        OnGetHit?.Invoke(this, EventArgs.Empty);
     }
 
     private void Die()
     {
         Destroy(this.gameObject);
+
+        isAlive = false;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float GetHealthFillAmount()
+    {
+        return currentHealth / maxHealth;
+    }
+
+    public bool GetIsAlive()
+    {
+        return isAlive;
     }
 }
