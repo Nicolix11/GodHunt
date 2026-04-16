@@ -115,7 +115,7 @@ Animator:
   m_GameObject: {fileID: 1398715742391453709}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4741cf066ab05de4b86d014fef80c2e7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 8480099440129758269}
   - component: {fileID: 8157422697855926041}
   - component: {fileID: 4838335341493404094}
+  - component: {fileID: 4283549978027015910}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -338,3 +339,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   moveSpeed: 10
   rotationSpeed: 8
+  baseAttackCooldown: 0.2
+--- !u!114 &4283549978027015910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565709200060591583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878fab831780f204e9095c679279b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  currentHealth: 0
+  maxHealth: 100
