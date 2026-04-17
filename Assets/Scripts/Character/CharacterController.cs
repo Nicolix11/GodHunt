@@ -16,7 +16,7 @@ public class CharacterController : MonoBehaviour
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float rotationSpeed = 8f;
+    [SerializeField] private float rotationSpeed = 20f;
     [Space] 
     [SerializeField] private GameObject baseAttackPrefab;
     [SerializeField] private GameObject baseAttackSpawnPoint;
@@ -59,26 +59,29 @@ public class CharacterController : MonoBehaviour
     private void PerformBaseAttack()
     {
         baseAttackTimer += Time.deltaTime; // increase the BaseAttackTimer
-        
-        if (baseAttackTimer >= baseAttackCooldown && !IsCharacterMoving()) // check for BaseAttackCooldown and Character is not moving
+
+        if (WaveManager.instance.IsWaveActive())
         {
-            OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
+            if (baseAttackTimer >= baseAttackCooldown && !IsCharacterMoving()) // check for BaseAttackCooldown and Character is not moving
+            {
+                OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
 
-            Instantiate(baseAttackPrefab, baseAttackSpawnPoint.transform.position, transform.rotation); // Angriff spawnen
+                Instantiate(baseAttackPrefab, baseAttackSpawnPoint.transform.position, transform.rotation); // Angriff spawnen
 
-            baseAttackTimer = 0f; // attack timer auf null zurücksetzen
+                baseAttackTimer = 0f; // attack timer auf null zurücksetzen
+            }
         }
     }
     
     private void RotateCharacter()
     {
-        if(WaveManager.instance.IsWaveActive())
+        if (WaveManager.instance.IsWaveActive())
         {
-            Debug.Log(WaveManager.instance.GetNearestEnemy());
-            transform.LookAt(WaveManager.instance.GetNearestEnemy().transform.position);
+            transform.LookAt(WaveManager.instance.GetNearestEnemy().transform.position); // Fehler: Slerp einbauen
         }
         else
         {
+            // Fehler: Character springt zurück
             transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
         }
     }
