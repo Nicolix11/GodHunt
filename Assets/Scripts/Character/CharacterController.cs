@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CharacterController : MonoBehaviour
 {
@@ -11,15 +12,15 @@ public class CharacterController : MonoBehaviour
     private PlayerInput playerInput;
 
     private Vector3 moveDir;
-    private bool isMoving = false;
+    private bool isMoving;
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 8f;
     [Space] 
     [SerializeField] private GameObject baseAttackPrefab;
+    [SerializeField] private GameObject baseAttackSpawnPoint;
     [SerializeField] private float baseAttackCooldown = 1f;
-    [SerializeField] private GameObject attackOffset;
     private float baseAttackTimer;
     
     
@@ -63,7 +64,7 @@ public class CharacterController : MonoBehaviour
         {
             OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
 
-            Instantiate(baseAttackPrefab, attackOffset.transform.position, transform.rotation); // Angriff spawnen
+            Instantiate(baseAttackPrefab, baseAttackSpawnPoint.transform.position, transform.rotation); // Angriff spawnen
 
             baseAttackTimer = 0f; // attack timer auf null zurücksetzen
         }
@@ -71,7 +72,15 @@ public class CharacterController : MonoBehaviour
     
     private void RotateCharacter()
     {
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
+        if(WaveManager.instance.IsWaveActive())
+        {
+            Debug.Log(WaveManager.instance.GetNearestEnemy());
+            transform.LookAt(WaveManager.instance.GetNearestEnemy().transform.position);
+        }
+        else
+        {
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
+        }
     }
     
     private void MoveCharacter()

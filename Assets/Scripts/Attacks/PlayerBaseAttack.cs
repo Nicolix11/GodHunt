@@ -29,7 +29,7 @@ public class PlayerBaseAttack : MonoBehaviour
     {
         IDamageable hitObject = other.gameObject.GetComponent<IDamageable>();
 
-        if (hitObject != null || other.CompareTag("Enemy"))
+        if (hitObject != null)
         {
             hitObject.ApplyDamage(attackDamage);
         }

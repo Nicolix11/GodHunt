@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4283549978027015910}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,8 +342,8 @@ MonoBehaviour:
   moveSpeed: 10
   rotationSpeed: 8
   baseAttackPrefab: {fileID: 5907493718175069007, guid: a63b9615fc6eb8640b26543abbe83ece, type: 3}
-  baseAttackCooldown: 0.2
-  attackOffset: {fileID: 8086037888105458001}
+  baseAttackCooldown: 1
+  baseAttackSpawnPoint: {fileID: 8086037888105458001}
 --- !u!114 &4283549978027015910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2199783789144974102}
   m_Layer: 0
-  m_Name: attackOffset
+  m_Name: BaseAttackSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
