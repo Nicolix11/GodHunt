@@ -6,7 +6,7 @@ public class CharacterController : MonoBehaviour
 {
     public static CharacterController instance { get; private set; }
     
-    public event EventHandler OnAttack; 
+    public event EventHandler OnAttack;
     
     private Rigidbody rb;
     private PlayerInput playerInput;
@@ -75,14 +75,26 @@ public class CharacterController : MonoBehaviour
     
     private void RotateCharacter()
     {
+        Vector3 lastMoveVector = new Vector3(0, 0, 0);
+
+        if (moveDir != Vector3.zero)
+            lastMoveVector = moveDir;
+        
+        
         if (WaveManager.instance.IsWaveActive())
         {
             transform.LookAt(WaveManager.instance.GetNearestEnemy().transform.position); // Fehler: Slerp einbauen
         }
         else
         {
-            // Fehler: Character springt zurück
-            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
+            if(moveDir == Vector3.zero)
+            {
+                transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed); // rotate Character
+            }
+            else
+            {
+                transform.forward = lastMoveVector;
+            }
         }
     }
     

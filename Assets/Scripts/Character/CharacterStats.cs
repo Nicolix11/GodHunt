@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour, IDamageable
 {
+    public static CharacterStats instance;
+    
     public event EventHandler OnGetHit;
+    public event EventHandler OnCharacterDie;
     
     [Header("Stats")]
     [SerializeField] private float currentHealth;
@@ -14,6 +17,8 @@ public class CharacterStats : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        instance = this;
+        
         isAlive = true;
         
         currentHealth = maxHealth;
@@ -22,8 +27,8 @@ public class CharacterStats : MonoBehaviour, IDamageable
     public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
-
-        if (currentHealth <= 0)
+        
+        if(currentHealth <= 0)
         {
             Die();
         }

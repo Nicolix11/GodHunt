@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour, IDamageable
 {
     public event EventHandler OnGetHit;
+    public event EventHandler OnEnemyDie;
     
     [Header("Stats")]
     [SerializeField] private float currentHealth;
