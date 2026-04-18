@@ -37,7 +37,10 @@ public class EnemyController : MonoBehaviour
 
     private void RotateEnemy()
     {
-        transform.LookAt(CharacterController.instance.transform.position);
+        if (CharacterController.instance)
+        {
+            transform.LookAt(CharacterController.instance.transform.position);
+        }
     }
 
     private void PerformBaseAttack()

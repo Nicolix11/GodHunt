@@ -22,6 +22,11 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private GameObject baseAttackSpawnPoint;
     [SerializeField] private float baseAttackCooldown = 1f;
     private float baseAttackTimer;
+    [Space]
+    [SerializeField] private GameObject abilityAttackPrefab;
+    [SerializeField] private GameObject abilityAttackSpawnPoint;
+    [SerializeField] private float abilityAttackCooldown = 20f;
+    private float abilityAttackTimer;
     
     
     private void Awake()
@@ -79,7 +84,6 @@ public class CharacterController : MonoBehaviour
 
         if (moveDir != Vector3.zero)
             lastMoveVector = moveDir;
-        
         
         if (WaveManager.instance.IsWaveActive())
         {

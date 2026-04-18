@@ -375,7 +375,7 @@ MonoBehaviour:
   rotationSpeed: 20
   baseAttackPrefab: {fileID: 5907493718175069007, guid: 8d8261a31fac7b54e9b7e27af6111b4b, type: 3}
   baseAttackSpawnPoint: {fileID: 6901376782270906747}
-  baseAttackCooldown: 1
+  baseAttackCooldown: 2
 --- !u!1001 &4365513630273161643
 PrefabInstance:
   m_ObjectHideFlags: 0

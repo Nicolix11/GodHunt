@@ -5,7 +5,7 @@ public class CharacterVisuals : MonoBehaviour
 {
     private const string IS_MOVING = "IsMoving";
     private const string ATTACK = "Attack";
-    private const string DIE = "Die";
+    private const string ON_CHARACTER_DIE = "OnCharacterDie";
 
     private Animator animator;
 
@@ -33,6 +33,6 @@ public class CharacterVisuals : MonoBehaviour
     
     private void CharacterStats_OnCharacterDie(object sender, EventArgs e)
     {
-        animator.SetBool(DIE, CharacterStats.instance.GetIsAlive());
+        animator.SetTrigger(ON_CHARACTER_DIE);
     }
 }

@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: ec78997e80d9b37448c556859b24e8b4
+guid: 0c702326e269ce84c874d9423d1ea88a
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Illustration6
+    second: {fileID: 2800000, guid: 6eb314d9ed79ee147a9e0cdb82210cc6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: axt schaft
+    second: {fileID: 2800000, guid: 6a3d74e3172e5d941b952b3d40b194c1, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

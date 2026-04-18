@@ -39,6 +39,8 @@ public class EnemyStats : MonoBehaviour, IDamageable
         isAlive = false;
 
         WaveManager.instance.GetActiveEnemyList().Remove(this.gameObject);
+        
+        OnEnemyDie?.Invoke(this, EventArgs.Empty);
     }
     
     public float GetCurrentHealth()

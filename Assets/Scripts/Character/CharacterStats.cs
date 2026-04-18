@@ -41,6 +41,8 @@ public class CharacterStats : MonoBehaviour, IDamageable
         Destroy(this.gameObject);
 
         isAlive = false;
+        
+        OnCharacterDie?.Invoke(this, EventArgs.Empty);
     }
 
     public float GetCurrentHealth()

@@ -6,6 +6,7 @@ public class EnemyBaseAttack : MonoBehaviour
 
     private const string PLAYER = "Player";
     private const string ENEMY = "Enemy";
+    private const string ENVIROMENT = "Enviroment";
     
     [Header("Stats")]
     [SerializeField] private float baseAttackDamage = 10f;
@@ -38,11 +39,7 @@ public class EnemyBaseAttack : MonoBehaviour
             hitObject.ApplyDamage(baseAttackDamage);
             Destroy(gameObject);
         }
-        else if (hitObject != null && other.CompareTag(ENEMY))
-        {
-            
-        }
-        else
+        else if (other.CompareTag(ENVIROMENT))
         {
             Destroy(gameObject);
         }
