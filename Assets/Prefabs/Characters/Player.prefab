@@ -273,8 +273,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8966769564975140968}
-  - {fileID: 1573423205644827362}
   - {fileID: 2199783789144974102}
+  - {fileID: 1573423205644827362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8480099440129758269
@@ -342,8 +342,11 @@ MonoBehaviour:
   moveSpeed: 10
   rotationSpeed: 20
   baseAttackPrefab: {fileID: 5907493718175069007, guid: a63b9615fc6eb8640b26543abbe83ece, type: 3}
-  baseAttackSpawnPoint: {fileID: 8086037888105458001}
+  baseAttackSpawnPoint: {fileID: 2199783789144974102}
   baseAttackCooldown: 1
+  abilityAttackPrefab: {fileID: 0}
+  abilityAttackSpawnPoint: {fileID: 0}
+  abilityAttackCooldown: 20
 --- !u!114 &4283549978027015910
 MonoBehaviour:
   m_ObjectHideFlags: 0

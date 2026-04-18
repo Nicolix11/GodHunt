@@ -291,8 +291,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2975367224543483477}
-  - {fileID: 3495189279549981226}
   - {fileID: 5334092116144535326}
+  - {fileID: 3495189279549981226}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1607136798041406657
@@ -372,9 +372,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   moveSpeed: 10
-  rotationSpeed: 20
+  rotSpeed: 20
   baseAttackPrefab: {fileID: 5907493718175069007, guid: 8d8261a31fac7b54e9b7e27af6111b4b, type: 3}
-  baseAttackSpawnPoint: {fileID: 6901376782270906747}
+  baseAttackSpawnPoint: {fileID: 5334092116144535326}
   baseAttackCooldown: 2
 --- !u!1001 &4365513630273161643
 PrefabInstance:

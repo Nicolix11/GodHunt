@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class EnemyController : MonoBehaviour
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float rotSpeed = 20f;
     [Space] 
     [SerializeField] private GameObject baseAttackPrefab;
-    [SerializeField] private GameObject baseAttackSpawnPoint;
+    [SerializeField] private Transform baseAttackSpawnPoint;
     [SerializeField] private float baseAttackCooldown = 1f;
     private float baseAttackTimer;
 
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
     {
         if (CharacterController.instance)
         {
-            transform.LookAt(CharacterController.instance.transform.position);
+            transform.LookAt(CharacterController.instance.GetCharacterPosition());
         }
     }
 
@@ -49,7 +50,7 @@ public class EnemyController : MonoBehaviour
 
         if (baseAttackTimer >= baseAttackCooldown && !IsMoving()) // check for BaseAttackCooldown and Character is not moving
         {
-            Instantiate(baseAttackPrefab, baseAttackSpawnPoint.transform.position, transform.rotation); // Angriff spawnen
+            Instantiate(baseAttackPrefab, baseAttackSpawnPoint.position, transform.rotation); // Angriff spawnen
 
             baseAttackTimer = 0f; // attack timer auf null zurücksetzen
         }

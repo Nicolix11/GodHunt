@@ -19,12 +19,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 20f;
     [Space] 
     [SerializeField] private GameObject baseAttackPrefab;
-    [SerializeField] private GameObject baseAttackSpawnPoint;
+    [SerializeField] private Transform baseAttackSpawnPoint;
     [SerializeField] private float baseAttackCooldown = 1f;
     private float baseAttackTimer;
     [Space]
     [SerializeField] private GameObject abilityAttackPrefab;
-    [SerializeField] private GameObject abilityAttackSpawnPoint;
+    [SerializeField] private Transform abilityAttackSpawnPoint;
     [SerializeField] private float abilityAttackCooldown = 20f;
     private float abilityAttackTimer;
     
@@ -71,7 +71,7 @@ public class CharacterController : MonoBehaviour
             {
                 OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
 
-                Instantiate(baseAttackPrefab, baseAttackSpawnPoint.transform.position, transform.rotation); // Angriff spawnen
+                Instantiate(baseAttackPrefab, baseAttackSpawnPoint.position, transform.rotation); // Angriff spawnen
 
                 baseAttackTimer = 0f; // attack timer auf null zurücksetzen
             }
@@ -122,5 +122,10 @@ public class CharacterController : MonoBehaviour
     public bool IsMoving()
     {
         return isMoving; // return is Moving bool
+    }
+
+    public Vector3 GetCharacterPosition()
+    {
+        return transform.position;
     }
 }

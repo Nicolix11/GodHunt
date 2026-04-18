@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f47fdc1f-d8bf-467f-a1e9-9234663ca327" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GodHunt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GodHunt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Character/AC_Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Character/AC_Character.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Models/DokumentvonNico.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Models/DokumentvonNico.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Prefabs/BattleAxeVisual.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Prefabs/BattleAxeVisual.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Attacks/BaseAttack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Attacks/BaseAttack.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Attacks/Player/BattleAxeAttack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Attacks/Player/BattleAxeAttack.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Enemys.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Enemys/EnemyBaseAttack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Enemys/EnemyBaseAttack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Player/PlayerBaseAttack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Player/PlayerBaseAttack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Player/PlayerBaseAttackVisual.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Attacks/Player/PlayerBaseAttackVisual.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterVisuals.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemyStats.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +111,8 @@
       <workItem from="1776370299006" duration="4513000" />
       <workItem from="1776413946804" duration="11562000" />
       <workItem from="1776501609185" duration="5912000" />
-      <workItem from="1776523176435" duration="3407000" />
+      <workItem from="1776523176435" duration="4001000" />
+      <workItem from="1776539736598" duration="5525000" />
     </task>
     <servers />
   </component>
