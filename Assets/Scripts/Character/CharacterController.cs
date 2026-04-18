@@ -62,7 +62,7 @@ public class CharacterController : MonoBehaviour
 
         if (WaveManager.instance.IsWaveActive())
         {
-            if (baseAttackTimer >= baseAttackCooldown && !IsCharacterMoving()) // check for BaseAttackCooldown and Character is not moving
+            if (baseAttackTimer >= baseAttackCooldown && !IsMoving()) // check for BaseAttackCooldown and Character is not moving
             {
                 OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
 
@@ -115,7 +115,7 @@ public class CharacterController : MonoBehaviour
         return movVector.normalized; // return normalized Vector
     }
 
-    public bool IsCharacterMoving()
+    public bool IsMoving()
     {
         return isMoving; // return is Moving bool
     }

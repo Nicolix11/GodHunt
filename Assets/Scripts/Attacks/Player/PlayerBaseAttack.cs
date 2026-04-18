@@ -3,9 +3,12 @@ using UnityEngine;
 public class PlayerBaseAttack : MonoBehaviour
 {
     private Rigidbody rb;
+
+    private const string ENEMY = "Enemy";
     
     [Header("Stats")]
     [SerializeField] private float baseAttackDamage = 10f;
+    [Space]
     [SerializeField] private float movSpeed = 10f;
 
 
@@ -29,7 +32,7 @@ public class PlayerBaseAttack : MonoBehaviour
     {
         IDamageable hitObject = other.gameObject.GetComponent<IDamageable>();
 
-        if (hitObject != null)
+        if (hitObject != null && other.CompareTag(ENEMY))
         {
             hitObject.ApplyDamage(baseAttackDamage);
         }

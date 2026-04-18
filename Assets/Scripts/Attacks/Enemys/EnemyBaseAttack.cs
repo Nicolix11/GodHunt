@@ -1,0 +1,50 @@
+using UnityEngine;
+
+public class EnemyBaseAttack : MonoBehaviour
+{
+    private Rigidbody rb;
+
+    private const string PLAYER = "Player";
+    private const string ENEMY = "Enemy";
+    
+    [Header("Stats")]
+    [SerializeField] private float baseAttackDamage = 10f;
+    [Space]
+    [SerializeField] private float movSpeed = 10f;
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        MoveProjectile();
+    }
+
+    private void MoveProjectile()
+    {
+        rb.MovePosition(rb.position + (transform.forward * (Time.deltaTime * movSpeed))); // move Character
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IDamageable hitObject = other.gameObject.GetComponent<IDamageable>();
+
+        if (hitObject != null && other.CompareTag(PLAYER))
+        {
+            hitObject.ApplyDamage(baseAttackDamage);
+            Destroy(gameObject);
+        }
+        else if (hitObject != null && other.CompareTag(ENEMY))
+        {
+            
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}

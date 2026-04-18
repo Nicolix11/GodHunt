@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b45e061067465e48a997e6e7ee393ac, type: 2}
+  - {fileID: 2100000, guid: ad4169ab536d8114eb333995ef427a8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +112,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6901376782270906747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5334092116144535326}
+  m_Layer: 0
+  m_Name: BaseAttackSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5334092116144535326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901376782270906747}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5565546781614136427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7840046408060586119
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,9 +269,10 @@ GameObject:
   - component: {fileID: 1607136798041406657}
   - component: {fileID: 827163884311295659}
   - component: {fileID: 6645728293231470937}
+  - component: {fileID: 4292146085810683116}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,6 +292,7 @@ Transform:
   m_Children:
   - {fileID: 2975367224543483477}
   - {fileID: 3495189279549981226}
+  - {fileID: 5334092116144535326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1607136798041406657
@@ -326,6 +359,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   currentHealth: 0
   maxHealth: 100
+--- !u!114 &4292146085810683116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981036329606281327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650084698eea2344e8c05418295b98d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  moveSpeed: 10
+  rotationSpeed: 20
+  baseAttackPrefab: {fileID: 5907493718175069007, guid: 8d8261a31fac7b54e9b7e27af6111b4b, type: 3}
+  baseAttackSpawnPoint: {fileID: 6901376782270906747}
+  baseAttackCooldown: 1
 --- !u!1001 &4365513630273161643
 PrefabInstance:
   m_ObjectHideFlags: 0

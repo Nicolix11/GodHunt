@@ -672,8 +672,8 @@ GameObject:
   - component: {fileID: 1096440658}
   - component: {fileID: 1096440657}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Wall
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

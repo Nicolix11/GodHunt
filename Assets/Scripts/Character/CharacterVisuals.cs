@@ -23,7 +23,7 @@ public class CharacterVisuals : MonoBehaviour
     
     private void Update()
     {
-        animator.SetBool(IS_MOVING, CharacterController.instance.IsCharacterMoving());
+        animator.SetBool(IS_MOVING, CharacterController.instance.IsMoving());
     }
     
     private void CharacterController_OnAttack(object sender, EventArgs e)
