@@ -7,6 +7,7 @@ public class CharacterStats : MonoBehaviour, IDamageable
     
     public event EventHandler OnGetHit;
     public event EventHandler OnCharacterDie;
+    public event EventHandler OnCharacterRevive; 
     
     [Header("Stats")]
     [SerializeField] private float currentHealth;
@@ -38,11 +39,18 @@ public class CharacterStats : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Destroy(this.gameObject);
-
         isAlive = false;
         
         OnCharacterDie?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Revive()
+    {
+        currentHealth = maxHealth;
+
+        isAlive = true;
+        
+        OnCharacterRevive?.Invoke(this, EventArgs.Empty);
     }
 
     public float GetCurrentHealth()

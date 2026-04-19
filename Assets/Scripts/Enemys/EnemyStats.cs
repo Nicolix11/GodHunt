@@ -34,13 +34,13 @@ public class EnemyStats : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Destroy(this.gameObject);
-        
         isAlive = false;
 
         WaveManager.instance.GetActiveEnemyList().Remove(this.gameObject);
         
         OnEnemyDie?.Invoke(this, EventArgs.Empty);
+       
+        Destroy(this.gameObject);
     }
     
     public float GetCurrentHealth()

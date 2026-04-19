@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     {
         if (CharacterController.instance)
         {
-            transform.LookAt(CharacterController.instance.GetCharacterPosition());
+            transform.LookAt(CharacterController.instance.transform.position);
         }
     }
 

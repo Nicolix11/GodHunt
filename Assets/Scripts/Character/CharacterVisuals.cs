@@ -5,8 +5,9 @@ public class CharacterVisuals : MonoBehaviour
 {
     private const string IS_MOVING = "IsMoving";
     private const string ATTACK = "Attack";
-    private const string ON_CHARACTER_DIE = "OnCharacterDie";
-
+    private const string CHARACTER_DIE = "CharacterDie";
+    private const string CHARACTER_REVIVE = "CharacterRevive";
+    
     private Animator animator;
 
 
@@ -18,7 +19,8 @@ public class CharacterVisuals : MonoBehaviour
     private void Start()
     {
         CharacterController.instance.OnAttack += CharacterController_OnAttack;
-        CharacterStats.instance.OnCharacterDie += CharacterStats_OnCharacterDie;
+        CharacterStats.instance.OnCharacterDie += InstanceOnOnCharacterDie;
+        CharacterStats.instance.OnCharacterRevive += CharacterStats_OnCharacterRevive;
     }
     
     private void Update()
@@ -31,8 +33,13 @@ public class CharacterVisuals : MonoBehaviour
         animator.SetTrigger(ATTACK);
     }
     
-    private void CharacterStats_OnCharacterDie(object sender, EventArgs e)
+    private void InstanceOnOnCharacterDie(object sender, EventArgs e)
     {
-        animator.SetTrigger(ON_CHARACTER_DIE);
+        animator.SetTrigger(CHARACTER_DIE);
+    }
+    
+    private void CharacterStats_OnCharacterRevive(object sender, EventArgs e)
+    {
+        animator.SetTrigger(CHARACTER_REVIVE);
     }
 }

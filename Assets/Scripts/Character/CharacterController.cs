@@ -65,15 +65,21 @@ public class CharacterController : MonoBehaviour
     {
         baseAttackTimer += Time.deltaTime; // increase the BaseAttackTimer
 
-        if (WaveManager.instance.IsWaveActive())
+        if (CharacterStats.instance.GetIsAlive())
         {
-            if (baseAttackTimer >= baseAttackCooldown && !IsMoving()) // check for BaseAttackCooldown and Character is not moving
+            if (WaveManager.instance.IsWaveActive())
             {
-                OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
+                if (!IsMoving())
+                {
+                    if (baseAttackTimer >= baseAttackCooldown) // check for BaseAttackCooldown and Character is not moving
+                    {
+                        OnAttack?.Invoke(this, EventArgs.Empty); // Fire of OnAttack Event
 
-                Instantiate(baseAttackPrefab, baseAttackSpawnPoint.position, transform.rotation); // Angriff spawnen
+                        Instantiate(baseAttackPrefab, baseAttackSpawnPoint.position, transform.rotation); // Angriff spawnen
 
-                baseAttackTimer = 0f; // attack timer auf null zurücksetzen
+                        baseAttackTimer = 0f; // attack timer auf null zurücksetzen
+                    }
+                }
             }
         }
     }
@@ -122,10 +128,5 @@ public class CharacterController : MonoBehaviour
     public bool IsMoving()
     {
         return isMoving; // return is Moving bool
-    }
-
-    public Vector3 GetCharacterPosition()
-    {
-        return transform.position;
     }
 }
