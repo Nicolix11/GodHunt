@@ -19,8 +19,20 @@ public class UICharacterStats : MonoBehaviour
     private void Start()
     {
         characterStats.OnGetHit += CharacterStatsOnOnGetHit;
+        characterStats.OnCharacterDie += CharacterStatsOnOnCharacterDie;
+        characterStats.OnCharacterRevive += CharacterStatsOnOnCharacterRevive;
         
         UpdateHealthBar();
+    }
+
+    private void CharacterStatsOnOnCharacterRevive(object sender, EventArgs e)
+    {
+        EnableUI();
+    }
+
+    private void CharacterStatsOnOnCharacterDie(object sender, EventArgs e)
+    {
+        DisableUI();
     }
 
     private void CharacterStatsOnOnGetHit(object sender, EventArgs e)
@@ -31,5 +43,15 @@ public class UICharacterStats : MonoBehaviour
     private void UpdateHealthBar()
     {
         healthbarImage.fillAmount = characterStats.GetHealthFillAmount();
+    }
+
+    private void EnableUI()
+    {
+        gameObject.SetActive(true);   
+    }
+
+    private void DisableUI()
+    {
+        gameObject.SetActive(false);
     }
 }
