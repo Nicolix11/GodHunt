@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class CharacterController : MonoBehaviour
@@ -7,6 +8,8 @@ public class CharacterController : MonoBehaviour
     public static CharacterController instance { get; private set; }
     
     public event EventHandler OnAttack;
+
+    public event EventHandler PauseGame;
     
     private Rigidbody rb;
     private PlayerInput playerInput;
@@ -42,8 +45,10 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         baseAttackTimer = 0f;
+        
+        playerInput.Player.Pause.performed += OnPausePerformed;
     }
-
+    
     private void Update()
     {
         RotateCharacter();
@@ -128,5 +133,10 @@ public class CharacterController : MonoBehaviour
     public bool IsMoving()
     {
         return isMoving; // return is Moving bool
+    }
+    
+    private void OnPausePerformed(InputAction.CallbackContext obj)
+    {
+        PauseGame?.Invoke(this, EventArgs.Empty);
     }
 }
