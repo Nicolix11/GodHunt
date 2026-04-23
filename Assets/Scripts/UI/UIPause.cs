@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIPause : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class UIPause : MonoBehaviour
         isGamePaused = false;
     }
 
+    private void Update()
+    {
+        Debug.Log(Time.timeScale);
+    }
+
     private void CharacterController_OnPauseGame(object sender, EventArgs e)
     {
         Pause();
@@ -28,13 +34,20 @@ public class UIPause : MonoBehaviour
             DisableUI(pauseButton);
             EnableUI(pauseMenu);
             isGamePaused = !isGamePaused;
+            Time.timeScale = 0;
         }
         else
         {
             DisableUI(pauseMenu);
             EnableUI(pauseButton);
             isGamePaused = !isGamePaused;
+            Time.timeScale = 1;
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     private void EnableUI(GameObject inputObject)
