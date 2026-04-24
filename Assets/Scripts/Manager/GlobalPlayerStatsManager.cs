@@ -4,7 +4,11 @@ using UnityEngine;
 public class GlobalPlayerStatsManager : MonoBehaviour
 {
     public static GlobalPlayerStatsManager instance { get; private set; }
+
+    [Header("Components")] 
+    private GlobalPlayerStatsSO globalPlayerStatsSo;
     
+    [Header("Stats")]
     [SerializeField] private int gold;
     [SerializeField] private int gems;
     [SerializeField] private int experience;

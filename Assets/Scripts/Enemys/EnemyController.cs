@@ -10,8 +10,8 @@ public class EnemyController : MonoBehaviour
     private bool isMoving;
     
     [Header("Attributes")]
-    [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float rotSpeed = 20f;
+    //[SerializeField] private float moveSpeed = 10f;
+    //[SerializeField] private float rotSpeed = 20f;
     [Space] 
     [SerializeField] private GameObject baseAttackPrefab;
     [SerializeField] private Transform baseAttackSpawnPoint;

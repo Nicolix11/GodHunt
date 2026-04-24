@@ -28,7 +28,7 @@ public class CharacterController : MonoBehaviour
     [Space]
     [SerializeField] private GameObject abilityAttackPrefab;
     [SerializeField] private Transform abilityAttackSpawnPoint;
-    [SerializeField] private float abilityAttackCooldown = 20f;
+    //[SerializeField] private float abilityAttackCooldown = 20f;
     private float abilityAttackTimer;
     
     
