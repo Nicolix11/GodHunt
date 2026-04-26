@@ -17,11 +17,6 @@ public class UIPause : MonoBehaviour
         isGamePaused = false;
     }
 
-    private void Update()
-    {
-        Debug.Log(Time.timeScale);
-    }
-
     private void CharacterController_OnPauseGame(object sender, EventArgs e)
     {
         Pause();

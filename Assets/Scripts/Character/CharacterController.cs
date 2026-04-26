@@ -115,6 +115,9 @@ public class CharacterController : MonoBehaviour
     
     private void MoveCharacter()
     {
+        if (!CharacterStats.instance.GetIsAlive())
+            return;
+        
         rb.MovePosition(rb.position + GetInputVectorNormalized() * (moveSpeed * Time.deltaTime)); // move Character
     }
 
