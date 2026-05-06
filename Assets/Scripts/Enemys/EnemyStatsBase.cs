@@ -1,19 +1,23 @@
 using System;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour, IDamageable
+public abstract class EnemyStatsBase : MonoBehaviour, IDamageable
 {
-    public event EventHandler OnGetHit;
     public event EventHandler OnEnemyDie;
+    public event EventHandler<OnGetHitEventArgs> OnGetHit;
+    public class OnGetHitEventArgs : EventArgs 
+    {
+        public float damage; 
+    }
     
     [Header("Stats")]
-    [SerializeField] private float currentHealth;
-    [SerializeField] private float maxHealth = 100;
+    [SerializeField] protected float currentHealth;
+    [SerializeField] protected float maxHealth;
 
-    private bool isAlive;
+    protected bool isAlive;
     
 
-    private void Awake()
+    protected void Awake()
     {
         isAlive = true;
         
@@ -29,10 +33,10 @@ public class EnemyStats : MonoBehaviour, IDamageable
             Die();
         }
         
-        OnGetHit?.Invoke(this, EventArgs.Empty);
+        OnGetHit?.Invoke(this, new OnGetHitEventArgs{damage = damage});
     }
 
-    private void Die()
+    protected void Die()
     {
         isAlive = false;
 

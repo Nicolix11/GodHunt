@@ -38,9 +38,9 @@ public class EnemyController : MonoBehaviour
 
     private void RotateEnemy()
     {
-        if (CharacterController.instance)
+        if (PlayerController.instance)
         {
-            transform.LookAt(CharacterController.instance.transform.position);
+            transform.LookAt(PlayerController.instance.transform.position);
         }
     }
 

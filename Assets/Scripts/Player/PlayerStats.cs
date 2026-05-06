@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour, IDamageable
+public class PlayerStats : MonoBehaviour, IDamageable
 {
-    public static CharacterStats instance;
+    public static PlayerStats instance;
     
     public event EventHandler OnGetHit;
     public event EventHandler OnCharacterDie;

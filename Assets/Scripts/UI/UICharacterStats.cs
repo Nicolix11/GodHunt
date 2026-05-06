@@ -8,41 +8,41 @@ public class UICharacterStats : MonoBehaviour
     [SerializeField] private GameObject statsObject;
     [SerializeField] private Image healthbarImage;
     
-    private CharacterStats characterStats;
+    private PlayerStats _playerStats;
     
 
     private void Awake()
     {
-        characterStats = statsObject.GetComponent<CharacterStats>();
+        _playerStats = statsObject.GetComponent<PlayerStats>();
     }
     
     private void Start()
     {
-        characterStats.OnGetHit += CharacterStatsOnOnGetHit;
-        characterStats.OnCharacterDie += CharacterStatsOnOnCharacterDie;
-        characterStats.OnCharacterRevive += CharacterStatsOnOnCharacterRevive;
+        _playerStats.OnGetHit += PlayerStatsOnOnGetHit;
+        _playerStats.OnCharacterDie += PlayerStatsOnOnPlayerDie;
+        _playerStats.OnCharacterRevive += PlayerStatsOnOnPlayerRevive;
         
         UpdateHealthBar();
     }
 
-    private void CharacterStatsOnOnCharacterRevive(object sender, EventArgs e)
+    private void PlayerStatsOnOnPlayerRevive(object sender, EventArgs e)
     {
         EnableUI();
     }
 
-    private void CharacterStatsOnOnCharacterDie(object sender, EventArgs e)
+    private void PlayerStatsOnOnPlayerDie(object sender, EventArgs e)
     {
         DisableUI();
     }
 
-    private void CharacterStatsOnOnGetHit(object sender, EventArgs e)
+    private void PlayerStatsOnOnGetHit(object sender, EventArgs e)
     {
         UpdateHealthBar();
     }
     
     private void UpdateHealthBar()
     {
-        healthbarImage.fillAmount = characterStats.GetHealthFillAmount();
+        healthbarImage.fillAmount = _playerStats.GetHealthFillAmount();
     }
 
     private void EnableUI()

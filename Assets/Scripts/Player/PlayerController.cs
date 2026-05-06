@@ -1,11 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public static CharacterController instance { get; private set; }
+    public static PlayerController instance { get; private set; }
     
     public event EventHandler OnAttack;
 
@@ -70,7 +69,7 @@ public class CharacterController : MonoBehaviour
     {
         baseAttackTimer += Time.deltaTime; // increase the BaseAttackTimer
 
-        if (CharacterStats.instance.GetIsAlive())
+        if (PlayerStats.instance.GetIsAlive())
         {
             if (WaveManager.instance.IsWaveActive())
             {
@@ -115,7 +114,7 @@ public class CharacterController : MonoBehaviour
     
     private void MoveCharacter()
     {
-        if (!CharacterStats.instance.GetIsAlive())
+        if (!PlayerStats.instance.GetIsAlive())
             return;
         
         rb.MovePosition(rb.position + GetInputVectorNormalized() * (moveSpeed * Time.deltaTime)); // move Character

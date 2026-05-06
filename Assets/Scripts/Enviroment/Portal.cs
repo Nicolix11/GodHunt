@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CharacterController player = other.GetComponent<CharacterController>();
+        PlayerController player = other.GetComponent<PlayerController>();
         
         //check if wave is active
         if (player != null)
@@ -25,7 +25,7 @@ public class Portal : MonoBehaviour
         }
     }
 
-    private void MoveCharacter(CharacterController player)
+    private void MoveCharacter(PlayerController player)
     {
         player.transform.position = destinationPortal.ReturnSpawnPointTransform().position;
         player.transform.forward = destinationPortal.transform.position - spawnPoint.transform.position;

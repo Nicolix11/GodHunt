@@ -12,7 +12,7 @@ public class UIPause : MonoBehaviour
 
     private void Start()
     {
-        CharacterController.instance.PauseGame += CharacterController_OnPauseGame;
+        PlayerController.instance.PauseGame += CharacterController_OnPauseGame;
 
         isGamePaused = false;
     }

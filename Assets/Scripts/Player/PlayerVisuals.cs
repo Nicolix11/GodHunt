@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CharacterVisuals : MonoBehaviour
+public class PlayerVisuals : MonoBehaviour
 {
     private const string IS_MOVING = "IsMoving";
     private const string ATTACK = "Attack";
@@ -18,14 +18,14 @@ public class CharacterVisuals : MonoBehaviour
 
     private void Start()
     {
-        CharacterController.instance.OnAttack += CharacterController_OnAttack;
-        CharacterStats.instance.OnCharacterDie += InstanceOnOnCharacterDie;
-        CharacterStats.instance.OnCharacterRevive += CharacterStats_OnCharacterRevive;
+        PlayerController.instance.OnAttack += CharacterController_OnAttack;
+        PlayerStats.instance.OnCharacterDie += InstanceOnOnCharacterDie;
+        PlayerStats.instance.OnCharacterRevive += CharacterStats_OnCharacterRevive;
     }
     
     private void Update()
     {
-        animator.SetBool(IS_MOVING, CharacterController.instance.IsMoving());
+        animator.SetBool(IS_MOVING, PlayerController.instance.IsMoving());
     }
     
     private void CharacterController_OnAttack(object sender, EventArgs e)

@@ -8,28 +8,28 @@ public class UIEnemyStats : MonoBehaviour
     [SerializeField] private GameObject statsObject;
     [SerializeField] private Image healthbarImage;
     
-    private EnemyStats enemyStats;
+    private EnemyStatsBase _enemyStatsBase;
     
 
     private void Awake()
     {
-        enemyStats = statsObject.GetComponent<EnemyStats>();
+        _enemyStatsBase = statsObject.GetComponent<EnemyStatsBase>();
     }
     
     private void Start()
     {
-        enemyStats.OnGetHit += CharacterStatsOnOnGetHit;
+        _enemyStatsBase.OnGetHit += CharacterStatsBaseOnOnGetHit;
         
         UpdateHealthBar();
     }
 
-    private void CharacterStatsOnOnGetHit(object sender, EventArgs e)
+    private void CharacterStatsBaseOnOnGetHit(object sender, EventArgs e)
     {
         UpdateHealthBar();
     }
     
     private void UpdateHealthBar()
     {   
-        healthbarImage.fillAmount = enemyStats.GetHealthFillAmount();
+        healthbarImage.fillAmount = _enemyStatsBase.GetHealthFillAmount();
     }
 }

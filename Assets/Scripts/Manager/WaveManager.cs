@@ -30,10 +30,10 @@ public class WaveManager : MonoBehaviour
                     nearestEnemy = enemy;
                 }
                 
-                Vector3 distanceToPlayer = enemy.transform.position - CharacterController.instance.transform.position;
+                Vector3 distanceToPlayer = enemy.transform.position - PlayerController.instance.transform.position;
 
                 Vector3 distanceNearestEnemy =
-                    nearestEnemy.transform.position - CharacterController.instance.transform.position;
+                    nearestEnemy.transform.position - PlayerController.instance.transform.position;
             
                 if (distanceToPlayer.sqrMagnitude < distanceNearestEnemy.sqrMagnitude)
                 {
