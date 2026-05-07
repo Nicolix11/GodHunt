@@ -24,7 +24,7 @@ public abstract class EnemyStatsBase : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
     }
 
-    public void ApplyDamage(float damage)
+    public virtual void ApplyDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -55,11 +55,6 @@ public abstract class EnemyStatsBase : MonoBehaviour, IDamageable
     public float GetMaxHealth()
     {
         return maxHealth;
-    }
-
-    public float GetHealthFillAmount()
-    {
-        return currentHealth / maxHealth;
     }
 
     public bool GetIsAlive()

@@ -2,25 +2,25 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICharacterStats : MonoBehaviour
+public class UIPlayerStats : MonoBehaviour
 {
     [Header("Components")] 
     [SerializeField] private GameObject statsObject;
     [SerializeField] private Image healthbarImage;
     
-    private PlayerStats _playerStats;
+    private PlayerStats playerStats;
     
 
     private void Awake()
     {
-        _playerStats = statsObject.GetComponent<PlayerStats>();
+        playerStats = statsObject.GetComponent<PlayerStats>();
     }
     
     private void Start()
     {
-        _playerStats.OnGetHit += PlayerStatsOnOnGetHit;
-        _playerStats.OnCharacterDie += PlayerStatsOnOnPlayerDie;
-        _playerStats.OnCharacterRevive += PlayerStatsOnOnPlayerRevive;
+        playerStats.OnGetHit += PlayerStatsOnOnGetHit;
+        playerStats.OnCharacterDie += PlayerStatsOnOnPlayerDie;
+        playerStats.OnCharacterRevive += PlayerStatsOnOnPlayerRevive;
         
         UpdateHealthBar();
     }
@@ -42,7 +42,12 @@ public class UICharacterStats : MonoBehaviour
     
     private void UpdateHealthBar()
     {
-        healthbarImage.fillAmount = _playerStats.GetHealthFillAmount();
+        healthbarImage.fillAmount = GetHealthFillAmount();
+    }
+    
+    public float GetHealthFillAmount()
+    {
+        return playerStats.GetCurrentHealth() / playerStats.GetMaxHealth();
     }
 
     private void EnableUI()

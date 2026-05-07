@@ -274,7 +274,7 @@ Transform:
   m_Children:
   - {fileID: 8966769564975140968}
   - {fileID: 2199783789144974102}
-  - {fileID: 1573423205644827362}
+  - {fileID: 3847520627404816065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8480099440129758269
@@ -346,7 +346,6 @@ MonoBehaviour:
   baseAttackCooldown: 1
   abilityAttackPrefab: {fileID: 0}
   abilityAttackSpawnPoint: {fileID: 0}
-  abilityAttackCooldown: 20
 --- !u!114 &4283549978027015910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878fab831780f204e9095c679279b8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  globalPlayerStatsSo: {fileID: 0}
   currentHealth: 0
   maxHealth: 100
 --- !u!1 &8086037888105458001
@@ -392,7 +392,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2740010880062055867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1856028079857250659
+--- !u!1001 &4139124742314128704
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -400,14 +400,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2740010880062055867}
     m_Modifications:
-    - target: {fileID: 713579708172399801, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-      propertyPath: statsObject
-      value: 
-      objectReference: {fileID: 5565709200060591583}
-    - target: {fileID: 713579708172399801, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-      propertyPath: healthbarImage
-      value: 
-      objectReference: {fileID: 8683978490314596330}
     - target: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -450,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_LocalRotation.w
@@ -474,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.473
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -488,50 +480,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6154964193684323047, guid: a322c7828119b4a4091c7ff393626486, type: 3}
+    - target: {fileID: 5522061661566695807, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: statsObject
       value: 
       objectReference: {fileID: 5565709200060591583}
+    - target: {fileID: 5522061661566695807, guid: a322c7828119b4a4091c7ff393626486, type: 3}
+      propertyPath: healthbarImage
+      value: 
+      objectReference: {fileID: 6355564086112476105}
     - target: {fileID: 7571193536256573699, guid: a322c7828119b4a4091c7ff393626486, type: 3}
       propertyPath: m_Name
-      value: StatsCanvas
+      value: CharacterStatsCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7571193536256573699, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1222251098623271035}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a322c7828119b4a4091c7ff393626486, type: 3}
---- !u!224 &1573423205644827362 stripped
+--- !u!224 &3847520627404816065 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 870324638630693761, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-  m_PrefabInstance: {fileID: 1856028079857250659}
+  m_PrefabInstance: {fileID: 4139124742314128704}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8130026316729954400 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7571193536256573699, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-  m_PrefabInstance: {fileID: 1856028079857250659}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1222251098623271035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8130026316729954400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e60c9a3edf482f4499b90def2d782ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UICharacterStats
-  statsObject: {fileID: 5565709200060591583}
-  healthbarImage: {fileID: 8683978490314596330}
---- !u!114 &8683978490314596330 stripped
+--- !u!114 &6355564086112476105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7008269356180123273, guid: a322c7828119b4a4091c7ff393626486, type: 3}
-  m_PrefabInstance: {fileID: 1856028079857250659}
+  m_PrefabInstance: {fileID: 4139124742314128704}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

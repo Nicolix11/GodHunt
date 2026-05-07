@@ -4,15 +4,16 @@ using UnityEngine.Serialization;
 
 public class EnemyVisuals : MonoBehaviour
 {
-    [FormerlySerializedAs("enemyStats")]
     [Header("Components")]
     [SerializeField] private EnemyStatsBase enemyStatsBase;
     [SerializeField] private GameObject hitVisual;
     [SerializeField] private GameObject hitText;
+    [Space]
+    [SerializeField] private Transform hitParticleSpawnPoint;
+    [SerializeField] private ParticleSystem hitParticle;
     
-    [FormerlySerializedAs("visualHitEffectDuration")]
     [Header("Attributes")]
-    [SerializeField] private float visualHitWhiteningEffectDuration = 0.1f;
+    [SerializeField] private float visualHitWhiteningEffectDuration = 0.15f;
     
     private void Start()
     {
@@ -23,6 +24,12 @@ public class EnemyVisuals : MonoBehaviour
     {
         VisualHitWhiteningEffect();
         VisualHitNumbers(e.damage);
+        SpawnHitParticles();
+    }
+
+    private void SpawnHitParticles()
+    {
+        Instantiate(hitParticle, hitParticleSpawnPoint);
     }
 
     private void VisualHitNumbers(float damage)

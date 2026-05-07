@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth = 100;
     
     private bool isAlive;
-    
+
 
     private void Awake()
     {
@@ -64,11 +64,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public float GetMaxHealth()
     {
         return maxHealth;
-    }
-
-    public float GetHealthFillAmount()
-    {
-        return currentHealth / maxHealth;
     }
 
     public bool GetIsAlive()

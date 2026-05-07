@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 2963914050951000262}
   - component: {fileID: 10632898660196408}
   - component: {fileID: 366098453133364222}
-  - component: {fileID: 713579708172399801}
+  - component: {fileID: 1241142802572744361}
   m_Layer: 0
   m_Name: EnemyStatsCanvas
   m_TagString: Untagged
@@ -231,7 +231,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7571193536256573699}
-  m_LocalRotation: {x: -0.0000006621702, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &10632898660196408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UILookAtCamera
   mode: 2
---- !u!114 &713579708172399801
+--- !u!114 &1241142802572744361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -330,8 +330,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7571193536256573699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e60c9a3edf482f4499b90def2d782ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 8845e5bb01600f84286b546d517530ef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UICharacterStats
+  m_EditorClassIdentifier: Assembly-CSharp::UIEnemyStats
   statsObject: {fileID: 0}
   healthbarImage: {fileID: 0}
