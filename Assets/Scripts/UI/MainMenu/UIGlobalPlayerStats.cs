@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class UIGlobalPlayerStats : MonoBehaviour
 {
+    [Header("Components")] 
+    [SerializeField] private GlobalPlayerStatsSO globalPlayerStatsSo;
+    
+    [Header("Stats")]
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI experienceText;
     [SerializeField] private TextMeshProUGUI gemsText;
-
 
     private void Update()
     {
@@ -16,8 +19,8 @@ public class UIGlobalPlayerStats : MonoBehaviour
 
     private void UpdateGlobalPlayerStatsText()
     {
-        goldText.text = GlobalPlayerStatsManager.instance.GetGoldAmount().ToString();
-        experienceText.text = GlobalPlayerStatsManager.instance.GetExperienceAmount().ToString();
-        gemsText.text = GlobalPlayerStatsManager.instance.GetGemsAmount().ToString();
+        goldText.text = globalPlayerStatsSo.GetGold().ToString();
+        experienceText.text = globalPlayerStatsSo.GetExperience().ToString();
+        gemsText.text = globalPlayerStatsSo.GetGems().ToString();
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3522e6e824aa5c45af8ea305b44dc80, type: 3}
   m_Name: GlobalPlayerStatsSO
   m_EditorClassIdentifier: Assembly-CSharp::GlobalPlayerStatsSO
-  gold: 110
+  gold: 0
   experience: 0
   gems: 0

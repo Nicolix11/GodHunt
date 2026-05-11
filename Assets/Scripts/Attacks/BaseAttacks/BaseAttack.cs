@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class BaseAttack : MonoBehaviour
 {
+    protected WeaponSO weaponSO;
+    
     protected Rigidbody rb;
 
     protected const string PLAYER = "Player";
@@ -27,21 +29,12 @@ public abstract class BaseAttack : MonoBehaviour
     protected void MoveProjectile()
     {
         rb.MovePosition(rb.position + (transform.forward * (Time.deltaTime * movSpeed))); // move Character
-        
     }
-
-    protected virtual void OnTriggerEnter(Collider other)
+    
+    public WeaponSO GetWeaponSO()
     {
-        IDamageable hitObject = other.gameObject.GetComponent<IDamageable>();
-
-        if (hitObject != null && other.CompareTag(PLAYER))
-        {
-            hitObject.ApplyDamage(baseAttackDamage);
-            Destroy(gameObject);
-        }
-        else if (other.CompareTag(ENVIROMENT))
-        {
-            Destroy(gameObject);
-        }
+        return weaponSO;
     }
+
+    protected abstract void OnTriggerEnter(Collider other);
 }

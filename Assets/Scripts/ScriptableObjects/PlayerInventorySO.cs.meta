@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0b0c0de597415674fbf1f3f6cae0ec1d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - weaponSO: {fileID: 11400000, guid: cad5093e6fd050b48a60308cd602935b, type: 2}
+  - HelmetSO: {instanceID: 0}
+  - breastplateSO: {instanceID: 0}
+  - greavesSO: {instanceID: 0}
+  - sabatonSO: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

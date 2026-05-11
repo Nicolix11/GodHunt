@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GlobalPlayerStatsSO : ScriptableObject
 {
-    public float gold;
-    public float experience;
-    public float gems;
+    [SerializeField] private float gold;
+    [SerializeField] private float experience;
+    [SerializeField] private float gems;
     
     
     public void AddGold(float addedGold)
@@ -21,5 +21,20 @@ public class GlobalPlayerStatsSO : ScriptableObject
     public void AddGems(float addedGems)
     {
         gems += addedGems;
+    }
+
+    public float GetGold()
+    {
+        return gold;
+    }
+
+    public float GetGems()
+    {
+        return gems;
+    }
+
+    public float GetExperience()
+    {
+        return experience;
     }
 }
